@@ -15,13 +15,13 @@ const Home = () => {
                 <Link>
                     <div className=' bg-white py-5 px-16 rounded-md'>
                         <img src={bloodicon} className='h-16 w-16 m-auto' />
-                        <h3 className='font-bold text-xl text-center text-black'>Blood<br />Add Here</h3>
+                        <h3 className='font-bold text-xl text-center text-black'>Blood<br />Search Here</h3>
                     </div>
                 </Link>
                 <Link>
                     <div className=' bg-white py-5 px-16 rounded-md'>
                         <img src={bloodicon} className='h-16 w-16 m-auto' />
-                        <h3 className='font-bold text-xl text-center text-black'>Blood<br />Add Here</h3>
+                        <h3 className='font-bold text-xl text-center text-black'>Blood<br />Request Here</h3>
                     </div>
                 </Link>
             </section>
