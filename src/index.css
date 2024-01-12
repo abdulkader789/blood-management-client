@@ -1,8 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Joti+One&family=Michroma&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;1,400;1,500;1,600;1,700&family=Roboto:wght@300;400&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+ 
 *{
     margin:0;
     box-sizing: border-box;
 }
+
+/* font-family: 'Joti One', serif;
+font-family: 'Michroma', sans-serif;
+font-family: 'Playfair Display', serif;
+font-family: 'Roboto', sans-serif; */

@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+    const navigate = useNavigate();
+
     // State to store form data
     const [formData, setFormData] = useState({
         email: "",
@@ -31,8 +34,11 @@ const Register = () => {
             if (response.ok) {
                 console.log("User registered successfully!");
                 alert("User registered successfully!");
-
                 // Redirect or perform any other action after successful registration
+
+                navigate('/login');
+
+
             } else {
                 console.error("Registration failed");
             }

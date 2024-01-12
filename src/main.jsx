@@ -13,6 +13,8 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import { AuthProvider } from "./context/AuthContext";
 import AllBloodGroup from "./pages/AllBloodGroup";
+import AddBlood from "./pages/AddBlood";
+import Dashboard from "./pages/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
       {
         path: "/allbloodgroup",
         element: <AllBloodGroup />
+      },
+      {
+        path: "/addblood",
+        element: <AddBlood />
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />
       },
 
     ]

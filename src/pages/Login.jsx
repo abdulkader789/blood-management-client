@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -32,9 +35,11 @@ const Login = () => {
                 console.log(data)
                 if (data.token) {
                     console.log('Login successful');
-                    alert('Login successful');
                     localStorage.setItem('token', data.token)
                     auth.login(data.token);
+                    alert('Login successful');
+                    navigate('/home')
+
 
 
                 }
