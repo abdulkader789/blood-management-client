@@ -10,15 +10,35 @@ const Register = () => {
         password: "",
     });
 
+    // State to store validation errors
+    const [errors, setErrors] = useState({});
+
+    // Function to validate email format
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
     // Function to handle form input changes
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+
+        // Validate email on input change
+        if (name === "email") {
+            setErrors((prevErrors) => ({ ...prevErrors, email: !validateEmail(value) }));
+        }
     };
 
     // Function to handle form submission
     const handleFormSubmit = async (e) => {
         e.preventDefault();
+
+        // Check if there are validation errors
+        if (Object.values(errors).some((error) => error)) {
+            console.error("Invalid form submission. Please fix the errors.");
+            return;
+        }
 
         try {
             // Make a POST request to the /register endpoint
@@ -35,10 +55,7 @@ const Register = () => {
                 console.log("User registered successfully!");
                 alert("User registered successfully!");
                 // Redirect or perform any other action after successful registration
-
                 navigate('/login');
-
-
             } else {
                 console.error("Registration failed");
             }
@@ -61,9 +78,13 @@ const Register = () => {
                             name="email"
                             value={formData.email}
                             onChange={handleInputChange}
-                            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                            className={`mt-1 p-2 border border-gray-300 rounded-md w-full ${errors.email ? "border-red-500" : ""
+                                }`}
                             required
                         />
+                        {errors.email && (
+                            <p className="text-red-500 text-sm mt-1">Invalid email format</p>
+                        )}
                     </div>
 
                     <div>

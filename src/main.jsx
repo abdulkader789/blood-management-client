@@ -47,8 +47,10 @@ const router = createBrowserRouter([
         element: <AddBlood />
       },
       {
-        path: "/dashboard",
-        element: <Dashboard />
+        path: "dashboard",
+        element: <Dashboard />,
+
+
       },
 
     ]

@@ -12,6 +12,7 @@ const Login = () => {
     const auth = useAuth();
 
     const handleInputChange = (e) => {
+
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
@@ -35,8 +36,12 @@ const Login = () => {
                 console.log(data)
                 if (data.token) {
                     console.log('Login successful');
+
                     localStorage.setItem('token', data.token)
-                    auth.login(data.token);
+                    localStorage.setItem('userID', data.data._id)
+
+                    console.log(data.token, data.data._id)
+                    auth.login(data.data._id, data.token);
                     alert('Login successful');
                     navigate('/home')
 

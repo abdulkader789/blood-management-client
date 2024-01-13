@@ -1,102 +1,10 @@
-import { Link, useLocation } from 'react-router-dom';
-import adminpic from '../assets/admin.jpg'
-import { useAuth } from "../context/AuthContext";
-import { useState, useEffect } from 'react';
-import Profile from '../components/Profile';
-import Log from '../components/Log';
-import AllDonators from '../components/AllDonators';
-
-
-const Dashboard = () => {
-    const location = useLocation();
-
-    const isProfileRoute = location.pathname === '/dashboard/profile';
-
-    const { authData, setAuthData } = useAuth()
-    const { userID, token } = authData
-    const [userData, setUserData] = useState(null)
-    const [allusers, setAllUsers] = useState([])
-    const [render, setRender] = useState('log')
-
-
-
-    useEffect(() => {
-
-        const fetchUser = async () => {
-
-            try {
-                const response = await fetch(`api/${userID}`, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    // Update user in authData directly
-                    setAuthData((prevAuthData) => ({
-                        ...prevAuthData,
-                        user: {
-                            userEmail: data.data.email,
-                            userName: data.data.fullName,
-                        },
-                    }));
-                    setUserData(data.data);
-                } else {
-                    console.error('Failed to fetch data:', response.status, response.statusText);
-                }
-            } catch (error) {
-                console.error('Error during fetch:', error);
-            }
-
-        };
-
-        // Call the fetchData function
-        fetchUser();
-
-    }, [userID, token]); // Include dependencies in the dependency array to ensure useEffect is triggered when these values change
-
-    // The rest of your component code...
-
-    const handleRender = (component) => {
-        setRender(component);
-    };
-
-    useEffect(() => {
-        const fetchAllUsers = async () => {
-            try {
-                const response = await fetch('api/getAllUsers', {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('All users:', data);
-                    setAllUsers(data.data.users)
-                    // Handle the fetched data as needed
-                } else {
-                    console.error('Failed to fetch users:', response.status, response.statusText);
-                }
-            } catch (error) {
-                console.error('Error during fetch:', error);
-            }
-        };
-
-        // Call the fetchAllUsers function
-        fetchAllUsers();
-    }, [token]);
-
+// import { Link } from "react-router-dom";
+// import adminpic from '../assets/admin.jpg'
+const Profile = () => {
 
     return (
         <div>
-
-            <div className="flex bg-gray-100 min-h-screen">
+            {/* <div className="flex bg-gray-100 min-h-screen">
 
                 <aside className="hidden sm:flex sm:flex-col">
                     <Link to='/home' className="inline-flex items-center justify-center h-20 w-20 bg-red-500 hover:bg-slate-600 focus:bg-purple-500">
@@ -161,12 +69,14 @@ const Dashboard = () => {
                             <button className="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
                                 <span className="sr-only">User Menu</span>
                                 <div className="hidden md:flex md:flex-col md:items-end md:leading-tight">
-                                    <span className="font-semibold">{userData?.email}</span>
-                                    <span className="text-sm text-gray-600">{userData?.fullName || 'No Name Added'}</span>
+                                    <span className="font-semibold">
+                                        User Name Here
+                                    </span>
+                                    <span className="text-sm text-gray-600">Web Developer</span>
                                 </div>
                                 <span className="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
 
-                                    <img onClick={() => handleRender('profile')} src={adminpic} alt="user profile photo" className="h-full w-full object-cover" />
+                                    <img src={adminpic} alt="user profile photo" className="h-full w-full object-cover" />
 
                                 </span>
                                 <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="hidden sm:block h-6 w-6 text-gray-300">
@@ -194,30 +104,35 @@ const Dashboard = () => {
                     <main className="p-6 sm:p-10 space-y-6">
                         <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
                             <div className="mr-6">
-                                <h1 className="text-4xl font-semibold mb-2">Dashboard</h1>
+                                <h1 className="text-4xl font-semibold mb-2">Profile</h1>
                                 <h2 className="text-gray-600 ml-0.5">Mobile UX/UI Design course</h2>
                             </div>
                             <div className="flex flex-wrap items-start justify-end -mb-3">
-                                <button className="inline-flex px-5 py-3 text-purple-600 hover:text-purple-700 focus:text-purple-700 hover:bg-purple-100 focus:bg-purple-100 border border-purple-600 rounded-md mb-3">
+                                <Link to='/dashboard'>
+                                    <button className="inline-flex px-5 py-3 text-purple-600 hover:text-purple-700 focus:text-purple-700 hover:bg-purple-100 focus:bg-purple-100 border border-purple-600 rounded-md mb-3">
 
-                                    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 h-5 w-5 -ml-1 mt-0.5 mr-2">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                    </svg>
+                                        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 h-5 w-5 -ml-1 mt-0.5 mr-2">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                        </svg>
 
-                                    Manage dashboard
+                                        Manage dashboard
 
-                                </button>
+                                    </button>
+                                </Link>
 
 
-                                <button onClick={() => handleRender('profile')} className="inline-flex px-5 py-3 text-purple-600 hover:text-purple-700 focus:text-purple-700 hover:bg-purple-100 focus:bg-purple-100 border border-purple-600 rounded-md mb-3 ml-6">
+                                <Link to='/dashboard/profile' className="ml-6">
+                                    <button className="inline-flex px-5 py-3 text-purple-600 hover:text-purple-700 focus:text-purple-700 hover:bg-purple-100 focus:bg-purple-100 border border-purple-600 rounded-md mb-3">
 
-                                    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 h-5 w-5 -ml-1 mt-0.5 mr-2">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                    </svg>
+                                        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 h-5 w-5 -ml-1 mt-0.5 mr-2">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                                        </svg>
 
-                                    Manage Profile
+                                        Manage Profile
 
-                                </button>
+                                    </button>
+                                </Link>
+
                                 <button className="inline-flex px-5 py-3 text-white bg-red-400 hover:bg-red-700 focus:bg-purple-700 rounded-md ml-6 mb-3">
                                     <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 h-6 w-6 text-white -ml-1 mr-2">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -226,16 +141,15 @@ const Dashboard = () => {
                                 </button>
                             </div>
                         </div>
-                        {render === 'log' && <Log handleRender={handleRender} allusers={allusers} />}
-                        {render === 'profile' && <Profile />}
-                        {render === 'alldonators' && <AllDonators />}
+
+
 
                     </main>
                 </div>
-            </div>
-
-        </div>
+            </div > */}
+            <h2>Profile</h2>
+        </div >
     );
 };
 
-export default Dashboard;
+export default Profile;

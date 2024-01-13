@@ -4,20 +4,43 @@ import { createContext, useContext, useState } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [jwtToken, setJwtToken] = useState(localStorage.getItem('jwtToken') || null);
+    const [authData, setAuthData] = useState({
+        userID: localStorage.getItem('userID') || null,
+        token: localStorage.getItem('token') || null,
+        user: {
+            email: null,
+            name: null,
+        },
+    });
+    const login = (userID, token) => {
+        localStorage.setItem('userID', userID);
+        localStorage.setItem('token', token);
 
-    const login = (token) => {
-        setJwtToken(token);
-        localStorage.setItem('jwtToken', token);
+        // Update authData with the new values, including userEmail and userName
+        setAuthData((prevAuthData) => ({
+            ...prevAuthData,
+            userID: userID,
+            token: token,
+        }));
     };
 
     const logout = () => {
-        setJwtToken(null);
-        localStorage.removeItem('jwtToken');
+        localStorage.removeItem('userID');
+        localStorage.removeItem('token');
+
+        // Update authData with null values
+        setAuthData({
+            userID: null,
+            token: null,
+            user: {
+                email: null,
+                name: null,
+            },
+        });
     };
 
     return (
-        <AuthContext.Provider value={{ jwtToken, login, logout }}>
+        <AuthContext.Provider value={{ authData, setAuthData, login, logout }}>
             {children}
         </AuthContext.Provider>
     );
