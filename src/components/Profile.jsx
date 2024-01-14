@@ -1,155 +1,80 @@
-// import { Link } from "react-router-dom";
-// import adminpic from '../assets/admin.jpg'
+import '../styles/Profile.css';
+
 const Profile = () => {
-
     return (
-        <div>
-            {/* <div className="flex bg-gray-100 min-h-screen">
+        <div className="bg-gray-200  pb-24">
+            <header className="px-6 bg-white flex flex-wrap items-center lg:py-0 py-2">
+                <div className="flex-1 flex justify-between items-center font-black text-gray-700">
+                    <a href="#">Profile</a>
+                </div>
 
-                <aside className="hidden sm:flex sm:flex-col">
-                    <Link to='/home' className="inline-flex items-center justify-center h-20 w-20 bg-red-500 hover:bg-slate-600 focus:bg-purple-500">
-                        <svg fill="none" viewBox="0 0 64 64" className="h-12 w-12">
-                            <title>Home Page</title>
-                            <path d="M32 14.2c-8 0-12.9 4-14.9 11.9 3-4 6.4-5.6 10.4-4.5 2.3.6 4 2.3 5.7 4 2.9 3 6.3 6.4 13.7 6.4 7.9 0 12.9-4 14.8-11.9-3 4-6.4 5.5-10.3 4.4-2.3-.5-4-2.2-5.7-4-3-3-6.3-6.3-13.7-6.3zM17.1 32C9.2 32 4.2 36 2.3 43.9c3-4 6.4-5.5 10.3-4.4 2.3.5 4 2.2 5.7 4 3 3 6.3 6.3 13.7 6.3 8 0 12.9-4 14.9-11.9-3 4-6.4 5.6-10.4 4.5-2.3-.6-4-2.3-5.7-4-2.9-3-6.3-6.4-13.7-6.4z" fill="#fff" />
-                        </svg>
-                    </Link>
-                    <div className="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800">
-                        <nav className="flex flex-col mx-4 my-6 space-y-4">
-                            <a href="#" className="inline-flex items-center justify-center py-3 hover:text-gray-400 hover:bg-gray-700 focus:text-gray-400 focus:bg-gray-700 rounded-lg">
-                                <span className="sr-only">Folders</span>
-                                <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                                </svg>
-                            </a>
-                            <a href="#" className="inline-flex items-center justify-center py-3 text-purple-600 bg-white rounded-lg">
-                                <span className="sr-only">Dashboard</span>
-                                <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                </svg>
-                            </a>
-                            <a href="#" className="inline-flex items-center justify-center py-3 hover:text-gray-400 hover:bg-gray-700 focus:text-gray-400 focus:bg-gray-700 rounded-lg">
-                                <span className="sr-only">Messages</span>
-                                <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </a>
-                            <a href="#" className="inline-flex items-center justify-center py-3 hover:text-gray-400 hover:bg-gray-700 focus:text-gray-400 focus:bg-gray-700 rounded-lg">
-                                <span className="sr-only">Documents</span>
-                                <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                </svg>
-                            </a>
-                        </nav>
-                        <div className="inline-flex items-center justify-center h-20 w-20 border-t border-gray-700">
-                            <button className="p-3 hover:text-gray-400 hover:bg-gray-700 focus:text-gray-400 focus:bg-gray-700 rounded-lg">
-                                <span className="sr-only">Settings</span>
-                                <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </button>
+                <label htmlFor="menu-toggle" className="cursor-pointer lg:hidden block">
+                    <svg className="fill-current text-gray-600 hover:text-gray-800" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                        <title>menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                    </svg>
+                </label>
+                <input className="hidden" type="checkbox" id="menu-toggle" />
+
+                <div className="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
+                    <nav>
+                        <ul className="lg:flex items-center justify-between text-sm font-medium text-gray-700 pt-4 lg:pt-0">
+
+                            <li><a className="lg:p-4 py-3 px-0 block border-b-2 border-transparent text-gray-600 hover:text-gray-900" href="#">Settings</a></li>
+
+                            <li><a className="lg:p-4 py-3 px-0 block border-b-2 border-transparent text-gray-600 hover:text-gray-900 lg:mb-0 mb-2" href="#">Logout</a></li>
+                        </ul>
+                    </nav>
+
+
+                </div>
+            </header>
+
+            <div className="container  px-12 mt-8">
+                <h1 className="text-2xl font-bold text-gray-700 px-6 md:px-0">Account Settings</h1>
+                <ul className="flex border-b border-gray-300 text-sm font-medium text-gray-600 mt-3 px-6 md:px-0">
+                    <li className="mr-8 text-gray-900 border-b-2 border-gray-800"><a href="#_" className="py-4 inline-block">Profile Info</a></li>
+                    <li className="mr-8 hover:text-gray-900"><a href="#_" className="py-4 inline-block">Security</a></li>
+                    <li className="mr-8 hover:text-gray-900"><a href="#_" className="py-4 inline-block">Billing</a></li>
+                </ul>
+                <form action="/profile/save" method="POST" encType="multipart/form-data">
+
+                    <div className="w-full bg-white rounded-lg mx-auto mt-8 flex overflow-hidden rounded-b-none">
+                        <div className="w-1/3 bg-gray-100 p-8 hidden md:inline-block">
+                            <h2 className="font-medium text-md text-gray-700 mb-4 tracking-wide">Profile Info</h2>
+                            <p className="text-xs text-gray-500">Update your basic profile information such as Email Address, Name, and Image.</p>
+                        </div>
+                        <div className="md:w-2/3 w-full">
+                            <div className="py-2 px-16">
+                                <label htmlFor="name" className="text-sm text-gray-600">Name</label>
+                                <input className="mt-2 border-2 border-gray-200 px-3 py-2 block w-full rounded-lg text-base text-gray-900 focus:outline-none focus:border-indigo-500" type="text" value="" name="name" />
+                            </div>
+                            <hr className="border-gray-200" />
+                            <div className="py-2 px-16">
+                                <label htmlFor="email" className="text-sm text-gray-600">Email Address</label>
+                                <input className="mt-2 border-2 border-gray-200 px-3 py-2 block w-full rounded-lg text-base text-gray-900 focus:outline-none focus:border-indigo-500" type="email" name="email" value="" />
+                            </div>
+                            <hr className="border-gray-200" />
+                            <div className="py-2 px-16 clearfix">
+                                <label htmlFor="photo" className="text-sm text-gray-600 w-full block">Photo</label>
+                                <img className="rounded-full w-16 h-16 border-4 mt-2 border-gray-200 float-left" id="photo" src="https://pbs.twimg.com/profile_images/1163965029063913472/ItoFLWys_400x400.jpg" alt="photo" />
+                                <div className="bg-gray-200 text-gray-500 text-xs mt-5 ml-3 font-bold px-4 py-2 rounded-lg float-left hover:bg-gray-300 hover:text-gray-600 relative overflow-hidden cursor-pointer">
+                                    <input type="file" name="photo" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" /> Change Photo
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </aside>
-                <div className="flex-grow text-gray-800">
-                    <header className="flex items-center h-20 px-6 sm:px-10 bg-white">
-                        <button className="block sm:hidden relative flex-shrink-0 p-2 mr-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800 focus:bg-gray-100 focus:text-gray-800 rounded-full">
-                            <span className="sr-only">Menu</span>
-                            <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" />
-                            </svg>
-                        </button>
-                        <div className="relative w-full max-w-md sm:-ml-2">
-                            <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="absolute h-6 w-6 mt-2.5 ml-2 text-gray-400">
-                                <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
-                            </svg>
-                            <input type="text" role="search" placeholder="Search..." className="py-2 pl-10 pr-4 w-full border-4 border-transparent placeholder-gray-400 focus:bg-gray-50 rounded-lg" />
-                        </div>
-                        <div className="flex flex-shrink-0 items-center ml-auto">
-                            <button className="inline-flex items-center p-2 hover:bg-gray-100 focus:bg-gray-100 rounded-lg">
-                                <span className="sr-only">User Menu</span>
-                                <div className="hidden md:flex md:flex-col md:items-end md:leading-tight">
-                                    <span className="font-semibold">
-                                        User Name Here
-                                    </span>
-                                    <span className="text-sm text-gray-600">Web Developer</span>
-                                </div>
-                                <span className="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
+                    <div className="flex p-16 py-8 bg-gray-300 clearfix rounded-b-lg border-t border-gray-200 items-center justify-between">
+                        <p className="text-xs text-gray-500 tracking-tight">Click on Save to update your Profile Info</p>
+                        <button type="submit" className="bg-indigo-500 text-white text-sm font-medium px-6 py-2 rounded uppercase cursor-pointer">Save</button>
+                    </div>
 
-                                    <img src={adminpic} alt="user profile photo" className="h-full w-full object-cover" />
+                </form>
+            </div>
+        </div>
 
-                                </span>
-                                <svg aria-hidden="true" viewBox="0 0 20 20" fill="currentColor" className="hidden sm:block h-6 w-6 text-gray-300">
-                                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                                </svg>
-                            </button>
-                            <div className="border-l pl-3 ml-3 space-x-1">
-                                <button className="relative p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
-                                    <span className="sr-only">Notifications</span>
-                                    <span className="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full"></span>
-                                    <span className="absolute top-0 right-0 h-2 w-2 mt-1 mr-2 bg-red-500 rounded-full animate-ping"></span>
-                                    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                                    </svg>
-                                </button>
-                                <button className="relative p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
-                                    <span className="sr-only">Log out</span>
-                                    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </header>
-                    <main className="p-6 sm:p-10 space-y-6">
-                        <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between">
-                            <div className="mr-6">
-                                <h1 className="text-4xl font-semibold mb-2">Profile</h1>
-                                <h2 className="text-gray-600 ml-0.5">Mobile UX/UI Design course</h2>
-                            </div>
-                            <div className="flex flex-wrap items-start justify-end -mb-3">
-                                <Link to='/dashboard'>
-                                    <button className="inline-flex px-5 py-3 text-purple-600 hover:text-purple-700 focus:text-purple-700 hover:bg-purple-100 focus:bg-purple-100 border border-purple-600 rounded-md mb-3">
+    )
 
-                                        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 h-5 w-5 -ml-1 mt-0.5 mr-2">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                        </svg>
-
-                                        Manage dashboard
-
-                                    </button>
-                                </Link>
-
-
-                                <Link to='/dashboard/profile' className="ml-6">
-                                    <button className="inline-flex px-5 py-3 text-purple-600 hover:text-purple-700 focus:text-purple-700 hover:bg-purple-100 focus:bg-purple-100 border border-purple-600 rounded-md mb-3">
-
-                                        <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 h-5 w-5 -ml-1 mt-0.5 mr-2">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                        </svg>
-
-                                        Manage Profile
-
-                                    </button>
-                                </Link>
-
-                                <button className="inline-flex px-5 py-3 text-white bg-red-400 hover:bg-red-700 focus:bg-purple-700 rounded-md ml-6 mb-3">
-                                    <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="flex-shrink-0 h-6 w-6 text-white -ml-1 mr-2">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                    </svg>
-                                    Create blood request
-                                </button>
-                            </div>
-                        </div>
-
-
-
-                    </main>
-                </div>
-            </div > */}
-            <h2>Profile</h2>
-        </div >
-    );
 };
 
 export default Profile;
